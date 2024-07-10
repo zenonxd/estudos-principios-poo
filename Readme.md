@@ -9,6 +9,7 @@ Seguindo esses quatro pilares, será possivel obter um projeto orientado à obje
 ## Encapsulamento
 
 Seu objetivo é esconder detalhes internos, expondo a interface facilitada do objeto. Por exemplo:
+
 ![img_1.png](img_1.png)
 
 Imagine um carro. O motorista que é usuário do carro, ele pode interagir com o carro.
@@ -17,7 +18,7 @@ Mas ele interage somente com as interfaces disponíveis no carro (volante, pedai
 ele não precisa necessariamente saber como é o funcionamento do motor, dos airbags.. isso são detalhes
 ocultos, ou... **encapsulados**.
 
-Não é bacana, portanto, deixamos todos os objetos da nossa clase exposto. É possível que ao fazer isso,
+Não é bacana, portanto, deixarmos todos os objetos da nossa clase expostos. Ao fazermos isso, é possivel que
 o cliente não saiba/consiga usar o produto da forma correta (e até mesmo, segura).
 
 O AirBag, por exemplo, não deve ser ativado pelo usuário quando bem quiser... e ainda entra os
@@ -35,7 +36,7 @@ Para os visíveis (publicos), utilizamos: ```public String volante```.
 
 Para os privados (private), utilizamos: ```private String airbag```.
 
-O private fará ser possível acessar os atributos somente dentro da própria classe.
+O private permitirá acessar os atributos somente dentro da própria classe.
 
 ## Modificadores de Acesso - Métodos
 
@@ -76,7 +77,7 @@ valores que desejarmos.
 Basicamente, seria esconder/exibir dados e comportamentos.
 
 Isso é importante, pois é comum a gente esconder detalhes dos objetos, para facilitar seu uso. Uma TV,
-por exemplo, é muito complexa, quase ninguem sabe construir uma TV. Mas ela é entregue pra você com
+por exemplo, é muito complexa, quase ninguem sabe construir uma TV. Mas ela é entregue para você com
 uma interface simples de uso.
 
 Para fazermos isso, basta criarmos métodos de utilização pro produto.
@@ -95,7 +96,7 @@ public void trocarCanal(int novoCanal) {
 
 ## Herança
 
-Seria o reuso. A ideia é evirtarmos desperdício. 
+Seria o reuso. A ideia é evitarmos desperdício. 
 
 Ou seja, vamos centralizar a lógica em um lugar e torná-la acessível.
 
@@ -148,11 +149,12 @@ Na Main por exemplo, não será possível.
 
 ## InstanceOf
 
-Imagine um cenário, onde a gente precise pegar esse Array de super herói e chamar algum método que irá ver se o
-super herói é suportado pelo jogo.
+Imagine um cenário, onde a gente precise pegar esse Array de super herói e chamar algum método que irá ver se 
+o super herói é suportado pelo jogo.
 
-Criamos um método que retornará um void e passaremos como parametro um Array de SuperHeroi. Mas para validarmos
-esse parametro, conhecer seu tipo. Se é um HomemAranha ou HomemDeFerro, saber o seu tipo concreto.
+Criamos um método que retornará um void e passaremos como parametro um Array de SuperHeroi.
+
+Mas e para validarmos esse parametro e conhecer o seu tipo? (se é um HomemAranha ou HomemDeFerro).
 
 Para descobrirmos o tipo concreto de uma super classe, usaremos InstanceOf.
 ```java
@@ -169,10 +171,11 @@ static void validar(SuperHeroi[] superHerois) {
 
 Tudo no java é Object, tudo mesmo, até mesmo classes. Todas elas herdam métodos, atributos e comportamentos
 do Object do java.
+<hr>
 
 ## Classes Abstratas
 
-Sem a classe SuperHeroi ser abstrata, nós poderiamos ir no Main e criar simplesmente um:
+Se a classe SuperHeroi for abstrata, nós poderiamos ir no Main e criar simplesmente um:
 ```java
 new SuperHeroi("meu traje", new String[] {"contar piada"});
 ```
@@ -212,10 +215,11 @@ Por fim, nos iremos à classe e implementaremos essa interface.
 public class HomemAranha extends SuperHeroi implements Avenger{}
 ```
 
-Não existe herança multipla (multiplos extends), mas podemos implementar diversas interfaces.
+**Não existe herança multipla (multiplos extends), mas podemos implementar diversas interfaces.**
 
 Cabe destacar, que ao implementar uma interface a classe que deverá cumprir um "contrato". Ou seja, deverá implementar
 os métodos (que por padrão sao abstratos).
+<hr>
 
 ## Método Default (Interface)
 
@@ -238,4 +242,119 @@ iguais. É comum deixar essas constantes statics também.
 Porque no fim vão ser sempre as mesmas, não é preciso instanciar elas. 
 
 **Por fim, sempre que declarmos um final, a gente precisa iniciar ele assim que o declaramos.**
+<hr>
 
+## Polimorfismo
+
+![img_4.png](img_4.png)
+
+O verbo trabalhar, por exemplo. Todo trabalhador trabalha. Mas... e se for um programador? Qual o
+trabalho dele?
+
+Ou seja, dependendo de onde o método for chamado, ele vai se comportar de forma diferente. Terá 
+várias formas.
+
+Cabe destacar que usamos o polimorfismo utilizando da herança. Isso tudo nos permite o reuso do código,
+proporcionando uma melhor usabilidade, etc.
+
+Seguindo o exemplo de trabalho, criaremos uma interface Trabalhador.
+
+![img_5.png](img_5.png)
+
+E criaremos outras classes para implementar essa interface e cumprir esse "contrato". Essas classes
+podem ser: Médico, Cozinheiro, Programador.. 
+
+E no Main ao invés de instanciarmos a clase criada, nós iremos referenciar a interface.
+
+![img_6.png](img_6.png)
+
+E elas se comportarão de forma diferente, mesmo com a mesma funcionalidade em comum (ser da interface
+Trabalhador).
+
+## Casting de Polimorfismo
+
+Agora, uma única coisa. Como nós declaramos um cozinho por exemplo através da Interface, caso exista
+dentro da classe Cozinheiro outro método:
+
+![img_7.png](img_7.png)
+
+A variável no Main não será apta a enxergar esse método criado. O que é específico da classe Cozinheiro
+só sera possível ver se intanciarmos ela.
+
+Para isso, podemos usar um InstanceOf. No exemplo em questão, colocamos os 3 trabalhadores instanciados
+dentro de uma array:
+
+![img_8.png](img_8.png)
+
+E faremos um método para percorrer esse array.
+
+![img_9.png](img_9.png)
+
+E caso essa varíavel dentro do for seja uma InstanceOf Cozinheiro, aí sim poderá ser visualizado o 
+método da classe.
+<hr>
+
+## Sobrecarga de de métodos
+
+Imaginemos uma calculadora. Ao invés de termos métodos diferentes pra somar diferentes tipos de numero
+(double, int):
+
+![img_10.png](img_10.png)
+
+Nós podemos criar um método chamado soma somente, mas com retorno diferente:
+
+![img_11.png](img_11.png)
+
+E poderemos chamar o método normalmente passando parâmetros diferentes para cada operação.
+
+![img_12.png](img_12.png)
+<hr>
+
+## Polimorfismo em Generics
+
+Nesse exemplo, criamos uma classe ImpressaoGenerics que irá possuir exatamente o que estava no Main
+(O array da Interface Trabalhador + o método de imprimir):
+
+![img_13.png](img_13.png)
+
+Ok, e se quiséssemos usar o imprimir para imprimir outras coisas sem ser um array de Trabalhadores?
+
+Bom, nesse caso o método imprimir irá retornar um tipo ```<T>``` e como parâmetro, tabém receberá o mesmo.
+
+Tipo ```<T>``` é em suma, um tipo genérico.
+
+![img_14.png](img_14.png)
+
+E assim, esse método será capaz de imprimir qualquer coisa.
+<hr>
+
+## Atributos no Polimorfismo
+
+**Em cima falamos de atributos em métodos, mas e nos atributos?**
+
+Bom, aqui criamos uma classe Empregado que possui um atributo nome:
+
+![img_15.png](img_15.png)
+
+E exentederemos essa classe na Programador, mas atribuiremos um valor de "Programador":
+
+![img_16.png](img_16.png)
+
+Ao instanciarmos o Emprego e Programador chamando o ".nome", o que será exibido?
+
+![img_17.png](img_17.png)
+
+Mas se o programador for instanciado como Empregado, será exibido "Empregado" ao invés de "Programador".
+
+Por fim, para que a gente saiba o que será exibido, é só olharmos o tipo da variável. Sempre será
+a super classe que será exibida.
+<hr>
+
+## Tipo de Polimorfismo - Compile vs Runtime
+
+Compile - Tipo de compilação, estático. Vimos quando trabalhamos com sobrecarga de métodos (o exemplo
+da calculadora). O comportamento vai mudar em tempo de compilação, baseado nos argumentos que a gente 
+passa no método.
+
+Runtime - Tipo dinâmico. Ocorre quando a gente sobrescreve o método, conforme vimos no exemplo de
+[Atributos acima](#atributos-no-polimorfismo).
