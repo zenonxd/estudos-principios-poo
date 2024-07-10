@@ -1,4 +1,7 @@
-# Princípios de POO
+# Princípios de Programação Orientada a Objetos
+
+## Referência: Curso de Desenvolvimento Java, Giuliana Silva Bezerra
+[Compre aqui](https://www.udemy.com/course/curso-de-desenvolvimento-java/)
 
 # Pilares de POO
 ![img.png](img.png)
