@@ -8,7 +8,7 @@ Para fazermos isso, basta criarmos métodos de utilização pro produto. No caso
 
 Ah, nesses métodos a gente sempre trabalha com o atributo, a gente vai usar o "this", para EVIDENCIAR que é o atributo da classe! Exemplo:
 
-```
+```java
 public void trocarCanal(int novoCanal) {
     this.canal = novoCanal;
     // usando o this para referenciar ao atributo da classe, e trocando seu valor para o que

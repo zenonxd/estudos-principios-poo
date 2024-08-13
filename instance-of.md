@@ -8,7 +8,7 @@ Mas e para validarmos esse parametro e conhecer o seu tipo? (se é um HomemAranh
 
 Para descobrirmos o tipo concreto de uma super classe, usaremos InstanceOf.
 
-```
+```java
 static void validar(SuperHeroi[] superHerois) {
     //Verifica se o objeto super-heroi na posição 0 é uma instância do objeto HomemAranha
     if (superHerois[0] instanceof HomemAranha) {

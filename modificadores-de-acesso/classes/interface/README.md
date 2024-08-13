@@ -8,7 +8,7 @@ Por exemplo, uma interface Avenger. O que a gente espera que uma classe que ter√
 
 Por fim, nos iremos √† classe e implementaremos essa interface.
 
-```
+```java
 public class HomemAranha extends SuperHeroi implements Avenger{}
 ```
 

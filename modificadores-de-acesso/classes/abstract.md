@@ -2,7 +2,7 @@
 
 Se a classe SuperHeroi for abstrata, nós poderiamos ir no Main e criar simplesmente um:
 
-```
+```java
 new SuperHeroi("meu traje", new String[] {"contar piada"});
 ```
 
@@ -12,7 +12,7 @@ Ou seja, uma instância de SuperHeroi sem definir um nome específico, nem nada 
 
 E isso significa que esse método ficará vazio! Sem corpo, sem definição, sem nenhum bloco de comando. Somente com o seu retorno e parâmetro, assim:
 
-```
+```java
 public abstract void usarSuperPoder(int index);
 ```
 
